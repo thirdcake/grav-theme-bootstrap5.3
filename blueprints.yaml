@@ -1,0 +1,32 @@
+name: Boots
+slug: boots
+type: theme
+version: 0.1.0
+description: bootstrap theme
+icon: rebel
+author:
+  name: g222
+  email: g222@example.com
+homepage: https://github.com/g222/grav-theme-boots
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/g222/grav-theme-boots/issues
+readme: https://github.com/g222/grav-theme-boots/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool
