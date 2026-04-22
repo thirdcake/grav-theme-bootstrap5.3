@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+    <script>(function(){document.documentElement.dataset.bsTheme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"})()</script>
 
     {% include 'partials/metadata.html.twig' %}
     <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
     <link rel="canonical" href="{{ page.canonical(true)|e }}" />
+    <meta name="robots" content="noindex">
 {%- endblock %}
-
-    <script>(function(){document.documentElement.dataset.bsTheme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"})()</script>
 
 {% block stylesheets %}
     {% do assets.addCss('theme://css/bootstrap.min.css', 100) %}
@@ -32,15 +32,18 @@
 </head>
 <body>
 
-    <div class="container">
-        {% include 'partials/header.html.twig' with {title: page.title} %}
+{%- block header %}
+    {%- include 'partials/header.html.twig' %}
+    {%- include 'partials/breadcrumb.html.twig' %}
+{%- endblock %}
 
-        <main class="p-3">
-        {%- block content %}{% endblock %}
-        </main>
+<main>
+{%- block content %}{% endblock %}
+</main>
 
-        {% include 'partials/footer.html.twig' %}
-    </div>
+{%- block footer %}
+<footer class="container border-top">&copy; thirdcake.com</footer>
+{%- endblock %}
 
 {% block bottom %}
     {{ assets.js('bottom')|raw }}
