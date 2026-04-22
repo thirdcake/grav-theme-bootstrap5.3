@@ -12,6 +12,8 @@
     <link rel="canonical" href="{{ page.canonical(true)|e }}" />
 {%- endblock %}
 
+    <script>(function(){document.documentElement.dataset.bsTheme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"})()</script>
+
 {% block stylesheets %}
     {% do assets.addCss('theme://css/bootstrap.min.css', 100) %}
     {% do assets.addCss('theme://css/custom.css', 99) %}
@@ -30,18 +32,14 @@
 </head>
 <body>
 
-    <div class="">
-        <header>
-        {% block header %}{% endblock %}
-        </header>
+    <div class="container">
+        {% include 'partials/header.html.twig' with {title: page.title} %}
 
-        <main>
+        <main class="p-3">
         {%- block content %}{% endblock %}
         </main>
 
-        <footer>
-        {% block footer %}{% endblock %}
-        </footer>
+        {% include 'partials/footer.html.twig' %}
     </div>
 
 {% block bottom %}

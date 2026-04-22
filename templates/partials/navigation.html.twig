@@ -22,12 +22,12 @@
     {% endfor %}
 {% endmacro %}
 
-<ul>
+<ul class="d-flex">
     {% if config.theme.dropdown.enabled %}
         {{ _self.loop(pages) }}
     {% else %}
         {% for page in pages.children.visible %}
-            {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
             <li class="{{ current_page|e }}">
                 <a href="{{ page.url|e }}">
                     {% if page.header.icon %}<i class="fa fa-{{ page.header.icon|e }}"></i>{% endif %}
