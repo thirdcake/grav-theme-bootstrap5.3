@@ -1,23 +1,23 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    <div class="container markdown">
+    <div class="markdown">
         <h1>{{ page.title }}</h1>
         {{- page.content|raw }}
 
-        <div class="btn-group my-4">
+        <div role="group">
             {%- if page.isLast %}
-            <a href="#" class="btn btn-outline-secondary disabled">&lt;</a>
+            <a href="#" role="button" disabled>&lt;</a>
             {%- else %}
-            <a href="{{ page.prevSibling.url }}" class="btn btn-outline-secondary">&lt;{{ page.prevSibling.title}}</a>
+            <a href="{{ page.prevSibling.url }}" role="button">&lt;{{ page.prevSibling.title}}</a>
             {%- endif %}
             
-            <a href="{{ page.parent.url }}" class="btn btn-outline-secondary">^</a>
+            <a href="{{ page.parent.url }}" role="button">^</a>
 
             {%- if page.isFirst %}
-            <a href="#" class="btn btn-outline-secondary disabled">&gt;</a>
+            <a href="#" role="button" disabled>&gt;</a>
             {%- else %}
-            <a href="{{ page.nextSibling.url }}" class="btn btn-outline-secondary">{{ page.nextSibling.title}}&gt;</a>
+            <a href="{{ page.nextSibling.url }}" role="button">{{ page.nextSibling.title}}&gt;</a>
         {%- endif %}
         
         </div>

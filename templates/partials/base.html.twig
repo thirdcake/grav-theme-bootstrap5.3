@@ -15,12 +15,11 @@
 {%- endblock %}
 
 {% block stylesheets %}
-    {% do assets.addCss('theme://css/bootstrap.min.css', 100) %}
+    {% do assets.addCss('theme://css/pico.min.css', 100) %}
     {% do assets.addCss('theme://css/custom.css', 99) %}
 {% endblock %}
 
 {% block javascripts %}
-    {% do assets.addJs('theme://js/bootstrap.min.js', { priority: 100, loading: 'defer'}) %}
     {% do assets.addJs('theme://js/custom.js', { priority: 99, loading: 'defer'}) %}
 {% endblock %}
 
@@ -33,11 +32,13 @@
 <body>
 
 {%- block header %}
+<header class="container">
     {%- include 'partials/header.html.twig' %}
     {%- include 'partials/breadcrumb.html.twig' %}
+</header>
 {%- endblock %}
 
-<main>
+<main class="container">
 {%- block content %}{% endblock %}
 </main>
 

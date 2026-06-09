@@ -1,24 +1,12 @@
-<header class="container">
-    <nav class="navbar navbar-expand-lg border-bottom">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" 
-                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-                aria-controls="navbarSupportedContent" aria-expanded="false" 
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {% for page in pages.children.visible %}
-                    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-                    <li class="nav-item">
-                        <a class="nav-link {{ current_page|e }}" href="{{ page.url|e }}">
-                            {{ page.menu|e }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+<nav style="border-bottom:thin solid #333;">
+    <ul>
+        {% for page in pages.children.visible %}
+        {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+        <li class="">
+            <a class="contrast {{ current_page|e }}" href="{{ page.url|e }}">
+                {{ page.menu|e }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

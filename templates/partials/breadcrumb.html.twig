@@ -2,14 +2,14 @@
     {% if page.parent is defined and page.parent.parent != null %}
     {{ _self.loop(page.parent) }}
     {% endif %}
-    <li class="breadcrumb-item"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+    <li class=""><a href="{{ page.url }}">{{ page.menu }}</a></li>
 {% endmacro %}
 
-<nav class="container" aria-label="breadcrumb">
-    <ol class="breadcrumb py-2" style="--bs-breadcrumb-divider: '>';">
+<nav aria-label="breadcrumb">
+    <ul class="">
         {%- if page.parent is defined and page.parent.parent != null %}
         {{ _self.loop(page.parent) }}
         {%- endif %}
-        <li class="breadcrumb-item active" aria-current="page">{{ page.menu }}</li>
-    </ol>
+        <li class="" aria-current="page">{{ page.menu }}</li>
+    </ul>
 </nav>
