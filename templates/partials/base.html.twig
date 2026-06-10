@@ -21,11 +21,16 @@
 
 {% block javascripts %}
     {% do assets.addJs('theme://js/custom.js', { priority: 99, loading: 'defer'}) %}
+    {%- if header.js %}
+        {%- for filepath in header.js %}
+            {%- do assets.addJs(filepath, { priority: 98, loading: 'defer'}) %}
+        {%- endfor %}
+    {%- endif %}
 {% endblock %}
 
 {% block assets deferred %}
-    {{ assets.css()|raw }}
-    {{ assets.js()|raw }}
+    {{- assets.css()|raw }}
+    {{- assets.js()|raw }}
 {% endblock %}
 
 </head>
